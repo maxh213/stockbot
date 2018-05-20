@@ -3,11 +3,12 @@ from stock_price_entry import Stock_price_entry
 class Stock_price_batcher:
 
 	def __init__(self, stock_price_entries):
-		self.TRAINING_BATCH_SIZE = 3200
-		self.TESTING_BATCH_SIZE = 420
+		self.TRAINING_BATCH_SIZE = 244
+		self.TESTING_BATCH_SIZE = 54
 		self.stock_price_entries = stock_price_entries
-		self.training_entry_batch, self.training_result_batch = get_entry_and_result_batch(stock_price_entries[:self.TRAINING_BATCH_SIZE])
-		self.testing_entry_batch, self.testing_result_batch = get_entry_and_result_batch(stock_price_entries[-self.TESTING_BATCH_SIZE:])
+		print(len(stock_price_entries))
+		self.training_entry_batch, self.training_result_batch = self.get_entry_and_result_batch(stock_price_entries[:self.TRAINING_BATCH_SIZE])
+		self.testing_entry_batch, self.testing_result_batch = self.get_entry_and_result_batch(stock_price_entries[-self.TESTING_BATCH_SIZE:])
 
 	def get_entry_and_result_batch(self, stock_price_entries):
 		entry_batch = []

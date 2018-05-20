@@ -29,11 +29,11 @@ class Stock_price_entry:
 		return self.volume
 
 	def get_result_of_next_day(self):
-		if self.next_day_stock_price_entry['open'] > self.next_day_stock_price_entry['close']:
+		if self.next_day_stock_price_entry['open'] < self.next_day_stock_price_entry['close']:
 			return 1
 		else:
 			return -1
 
 	def get_data_for_batch(self):
-		return [[self.high_value, self.low_value, self.open_value, self.close_value, self.volume], [get_result_of_next_day()]]
+		return [[self.high_value, self.low_value, self.open_value, self.close_value, self.volume], [self.get_result_of_next_day()]]
 
