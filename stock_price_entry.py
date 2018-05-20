@@ -1,5 +1,3 @@
-import cat
-import random
 
 class Stock_price_entry:
 
